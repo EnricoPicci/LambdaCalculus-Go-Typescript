@@ -1,0 +1,32 @@
+{
+    "name": "2020-12-17-craftedsoftware-lambda-calculus",
+    "version": "1.0.0",
+    "description": "examples used in the 2020-12-17 Crafted Software meetup",
+    "main": "index.js",
+    "scripts": {
+        "tsc": "tsc",
+        "tsc-version": "tsc --version",
+        "test": "mocha -r ts-node/register src/**/*.spec.ts",
+        "lint": "eslint src/**/*.ts",
+        "lint:fix": "eslint src/**/*.ts --fix"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/EnricoPicci/2020-12-17-craftedsoftware-lambda-calculus.git"
+    },
+    "author": "Picci",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/EnricoPicci/2020-12-17-craftedsoftware-lambda-calculus/issues"
+    },
+    "homepage": "https://github.com/EnricoPicci/2020-12-17-craftedsoftware-lambda-calculus#readme",
+    "devDependencies": {
+        "@types/chai": "^4.2.14",
+        "@types/mocha": "^8.0.4",
+        "@types/node": "^14.14.9",
+        "chai": "^4.2.0",
+        "mocha": "^8.2.1",
+        "ts-node": "^9.0.0",
+        "typescript": "^4.1.2"
+    }
+}
