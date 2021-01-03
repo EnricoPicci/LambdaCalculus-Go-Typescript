@@ -55,11 +55,11 @@ func TestZWithFactorialLambda(t *testing.T) {
 			// since it contains a reference to the "f" function which is passed in as parameter
 			//
 			// this is the function returned by IsZero if n is zero
-			var ifIsZero = func(n ChurchNumber) ChurchNumber {
+			var ifIsZero nm = func(n ChurchNumber) ChurchNumber {
 				return one
 			}
 			// this is the function returned by IsZero if n is NOT zero
-			var ifIsNOTZero = func(n ChurchNumber) ChurchNumber {
+			var ifIsNOTZero nm = func(n ChurchNumber) ChurchNumber {
 				fPrev := f.(Lambda)(Prev(nChurchNumber)).(ChurchNumber)
 				return Mult(fPrev)(nChurchNumber)
 			}

@@ -6,7 +6,7 @@ var f Lambda = func(x interface{}) interface{} {
 var x = 0
 
 // ChurchNumber are Church encoded numbers
-type ChurchNumber = func(f interface{}) Lambda
+type ChurchNumber func(f interface{}) Lambda
 
 // Zero is 0
 var Zero ChurchNumber = func(f interface{}) Lambda {
@@ -16,19 +16,18 @@ var Zero ChurchNumber = func(f interface{}) Lambda {
 }
 
 // Succ is the successor function
-var Succ = func(n ChurchNumber) ChurchNumber {
+var Succ nm = func(n ChurchNumber) ChurchNumber {
 	return func(f interface{}) Lambda {
 		return func(x interface{}) interface{} {
 			switch f := f.(type) {
 			case nm:
-				// this case is encoutered with the Sum function which, at a certain point, needs to execute "Succ" passing to it
-				// a "func(ChurchNumber) ChurchNumber" which is what "nm" is.
-				// At the moment O am not able to reconstruct the exact sequence (it is late at night)
+				// this case is encoutered for intance with the Sum function which needs to execute "Succ" in a nested way, i.e. passing to
+				// "Succ" another "Succ" (Sum = Succ(Succ(Succ(...)))), which is of type "nm".
 				xChurch := x.(ChurchNumber)
 				return f(n(f)(xChurch).(ChurchNumber))
 			case ChurchNumber:
-				// this case is encoutered with the Pow function which, at a certain point, needs to execute "Succ" passing to it
-				// a ChurchNumber. At the moment O am not able to reconstruct the exact sequence (it is late at night)
+				// this case is encoutered with the Pow function which is "n(m)(f)". Pow at a certain point, needs to execute "Succ" passing to it
+				// a ChurchNumber.
 				l := x.(Lambda)
 				return f(n(f)(l))
 			case func(Pair) Pair:
@@ -82,7 +81,7 @@ var nextPair = func(p Pair) Pair {
 }
 
 // Prev is the previous number
-var Prev = func(n ChurchNumber) ChurchNumber {
+var Prev nm = func(n ChurchNumber) ChurchNumber {
 	p00 := Tuple2Struct(Zero)(Zero)
 	return n(nextPair)(p00).(Pair)(First).(ChurchNumber)
 }

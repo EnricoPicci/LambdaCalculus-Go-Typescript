@@ -1,7 +1,7 @@
 package lambdacalculus
 
 // Pair represents a pair
-type Pair = fxlx
+type Pair fxlx
 
 // Tuple2Struct is a 2-tuple structure
 var Tuple2Struct = func(x interface{}) xp {
