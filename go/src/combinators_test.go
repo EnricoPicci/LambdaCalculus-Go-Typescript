@@ -31,7 +31,7 @@ func TestZWithFactorial(t *testing.T) {
 		}
 	}
 	fZRecursive := Z(factorial)
-	res := fZRecursive.(Lambda)(5)
+	res := fZRecursive(5)
 	if res != 120 {
 		t.Errorf("The factorial of 5 should be always 120 instead is %v", res)
 	}
@@ -69,7 +69,7 @@ func TestZWithFactorialLambda(t *testing.T) {
 	// we pass the function to the Z combinator to obtain the factorial Lambda version
 	fZRecursive := Z(factorial)
 	// eventually we call the recursive Lambda function with the number we want to calculate the factorial for
-	resChurch := fZRecursive.(Lambda)(four)
+	resChurch := fZRecursive(four)
 	res := resChurch.(ChurchNumber)(f)(x)
 	if res != 24 {
 		t.Errorf("The factorial of 4 should be always 24 instead is %v", res)

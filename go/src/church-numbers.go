@@ -6,7 +6,7 @@ var f Lambda = func(x interface{}) interface{} {
 var x = 0
 
 // ChurchNumber are Church encoded numbers
-type ChurchNumber func(f interface{}) Lambda
+type ChurchNumber = func(f interface{}) Lambda
 
 // Zero is 0
 var Zero ChurchNumber = func(f interface{}) Lambda {
@@ -27,7 +27,7 @@ var Succ nm = func(n ChurchNumber) ChurchNumber {
 				return f(n(f)(xChurch).(ChurchNumber))
 			case ChurchNumber:
 				// this case is encoutered with the Pow function which is "n(m)(f)". Pow at a certain point, needs to execute "Succ" passing to it
-				// a ChurchNumber.
+				// a ChurchNumber as value of the "f" function.
 				l := x.(Lambda)
 				return f(n(f)(l))
 			case func(Pair) Pair:

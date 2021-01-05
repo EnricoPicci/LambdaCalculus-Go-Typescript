@@ -1,5 +1,9 @@
 package lambdacalculus
 
+func I(x interface{}) interface{} {
+	return x
+}
+
 // Flip flips the order in which parameters are passed to a function
 var Flip = func(f interface{}) xl {
 	return func(x interface{}) Lambda {
@@ -36,12 +40,13 @@ var Second = func(x interface{}) Lambda {
 }
 
 // Z implements the Z combinator
-var Z = func(g Lambda) interface{} {
-	fZ := func(x interface{}) interface{} {
-		gArg := func(v interface{}) interface{} {
+// Z = λg.(λx.g(λv.xxv))(λx.g(λv.xxv))
+var Z = func(g Lambda) Lambda {
+	var gZ Lambda = func(x interface{}) interface{} {
+		var gArg Lambda = func(v interface{}) interface{} {
 			return (x.(Lambda)(x)).(Lambda)(v)
 		}
 		return g(gArg)
 	}
-	return fZ(fZ)
+	return gZ(gZ).(Lambda)
 }
