@@ -1,7 +1,7 @@
 package lambdacalculus
 
 // ChurchBoolean are Church encoded booleans
-type ChurchBoolean = xl
+type ChurchBoolean xl
 
 // T is boolean true
 var T ChurchBoolean = First

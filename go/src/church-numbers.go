@@ -6,7 +6,7 @@ var f Lambda = func(x interface{}) interface{} {
 var x = 0
 
 // ChurchNumber are Church encoded numbers
-type ChurchNumber = func(f interface{}) Lambda
+type ChurchNumber func(f interface{}) Lambda
 
 // Zero is 0
 var Zero ChurchNumber = func(f interface{}) Lambda {
