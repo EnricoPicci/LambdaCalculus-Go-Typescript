@@ -16,7 +16,7 @@ var Flip = func(f interface{}) xl {
 			case ChurchBoolean:
 				return f(y)(x)
 			default:
-				return f.(Lambda)(x)
+				panic("This type assersion is not supported. There is need to update this function")
 			}
 		}
 	}

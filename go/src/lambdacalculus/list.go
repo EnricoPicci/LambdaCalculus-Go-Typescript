@@ -1,9 +1,5 @@
 package lambdacalculus
 
-// List is a Pair whose first value is the value of the current element and the second value is the next element of the list,
-// which is again a Pair
-type List Pair
-
 // EmptyList is the empty list. The EmptyList responds true to all functions which are passed to it, even
 // the function that is passed to check whether it is the empty list
 var EmptyList List = func(f xl) interface{} {

@@ -8,6 +8,18 @@ This project contains some Lambda Calculus computations implemented both in Go a
 
 ## Go
 
+`lambdacalculus` package contains all the code split over different files.
+
+- [types.go](./src/lambdacalculus/types.go): all types and type aliases defined here
+- [church-booleans.go](./src/lambdacalculus/church-booleans.go): boolean operators for Church encoded booleans
+- [churhc-numbers.go](./src/lambdacalculus/church-numbers.go): arithmetic funcions for Church encoded natural numbers
+- [pair.go](./src/lambdacalculus/pair.go): 2-tuple (Pair) structure
+- [list.go](./src/lambdacalculus/list.go): operations on lists
+- [combinators.go](./src/lambdacalculus/combinators.go): some combinators including the Z combinator
+- [factorial.go](./src/lambdacalculus/factorial.go): factorial function
+
+`lambdacalculusexpanded` package contains the implementation of the factorial function using only anonymous functions (function literals) and generic interface{} types
+
 ### Test
 
 - Go to the Go folder with `cd go`
